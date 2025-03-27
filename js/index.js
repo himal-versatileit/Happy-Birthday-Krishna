@@ -9,7 +9,7 @@ var S = {
     // Clear any existing dots
     S.Shape.clearDots();
 
-    S.UI.simulate('|#fireworks 5||#countdown 3||HAPPY|BIRTHDAY|❤|MY|L❤VE|KRISHNA|❤|KisHim|');
+    S.UI.simulate('|#countdown 3||HAPPY|BIRTHDAY|❤|MY|L❤VE|KRISHNA|❤|KisHim|');
     
 
     // Only start the loop after a small delay
