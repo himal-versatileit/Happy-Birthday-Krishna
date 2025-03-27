@@ -2,7 +2,6 @@ var S = {
   init: function () {
     var action = window.location.href,
         i = action.indexOf('?a=');
-
     S.Drawing.init('.canvas');
     document.body.classList.add('body--ready');
 
