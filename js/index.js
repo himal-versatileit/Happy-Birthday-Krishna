@@ -9,11 +9,8 @@ var S = {
     // Clear any existing dots
     S.Shape.clearDots();
 
-    if (i !== -1) {
-      S.UI.simulate(decodeURI(action).substring(i + 3));
-    } else {
-      S.UI.simulate('|#fireworks 5||#countdown 3||HAPPY|BIRTHDAY|❤|MY|L❤VE|KRISHNA|❤|KisHim|');
-    }
+    S.UI.simulate('|#fireworks 5||#countdown 3||HAPPY|BIRTHDAY|❤|MY|L❤VE|KRISHNA|❤|KisHim|');
+    
 
     // Only start the loop after a small delay
     setTimeout(function() {
@@ -161,12 +158,13 @@ S.UI = (function () {
               var x = Math.random() * window.innerWidth;
               var y = Math.random() * window.innerHeight;
               createFirework(x, y);
+                            
             }, i * 1000);
           }
           
           setTimeout(function() {
             processNext();
-          }, value * 500);
+          }, value * 800);
           break;
 
         case 'countdown':

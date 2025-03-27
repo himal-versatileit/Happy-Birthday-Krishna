@@ -984,7 +984,7 @@ body {
         display: flex;
         z-index: 10000;
         animation: avt 2s forwards 17s;
-        transform: translate(-50%, -50%);
+        /* transform: translate(-50%, -50%); */
         top: 44%;
         left: 30%;
     }
