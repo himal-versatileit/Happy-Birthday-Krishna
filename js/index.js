@@ -148,24 +148,6 @@ S.UI = (function () {
       value = getValue(current);
 
       switch (action) {
-        case 'fireworks':
-          value = parseInt(value) || 5;
-          value = value > 0 ? value : 5;
-          
-          for(var i = 0; i < value; i++) {
-            setTimeout(function() {
-              var x = Math.random() * window.innerWidth;
-              var y = Math.random() * window.innerHeight;
-              createFirework(x, y);
-                            
-            }, i * 1000);
-          }
-          
-          setTimeout(function() {
-            processNext();
-          }, value * 800);
-          break;
-
         case 'countdown':
           value = parseInt(value) || 3;
           value = value > 0 ? value : 3;
@@ -224,56 +206,6 @@ S.UI = (function () {
     }
 
     processNext();
-  }
-
-  function createFirework(x, y) {
-    // Brighter and more vibrant colors
-    var colors = [
-      '#FFD700',  // Bright Gold
-      '#FF69B4',  // Hot Pink
-      '#00FFFF',  // Cyan
-      '#FF4500',  // Orange Red
-      '#32CD32',  // Lime Green
-      '#FF1493',  // Deep Pink
-      '#00FF00',  // Bright Green
-      '#FFA500',  // Orange
-      '#FF0000',  // Pure Red
-      '#00FF7F'   // Spring Green
-    ];
-    
-    var particles = 40; // Increased number of particles
-    
-    for(var i = 0; i < particles; i++) {
-      var particle = document.createElement('div');
-      particle.style.position = 'fixed';
-      particle.style.left = x + 'px';
-      particle.style.top = y + 'px';
-      particle.style.width = '6px';  // Increased size
-      particle.style.height = '6px'; // Increased size
-      particle.style.borderRadius = '50%';
-      particle.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-      particle.style.zIndex = '9999';
-      particle.style.boxShadow = '0 0 10px currentColor'; // Added glow effect
-      particle.style.color = particle.style.backgroundColor;
-      document.body.appendChild(particle);
-      
-      var angle = (i / particles) * Math.PI * 2;
-      var velocity = 3 + Math.random() * 3; // Increased velocity
-      var vx = Math.cos(angle) * velocity;
-      var vy = Math.sin(angle) * velocity;
-      
-      var animation = particle.animate([
-        { transform: 'translate(0, 0)', opacity: 1 },
-        { transform: `translate(${vx * 150}px, ${vy * 150}px)`, opacity: 0 } // Increased spread
-      ], {
-        duration: 1500 + Math.random() * 500, // Increased duration
-        easing: 'cubic-bezier(0,0,0.2,1)'
-      });
-      
-      animation.onfinish = function() {
-        particle.remove();
-      };
-    }
   }
 
   function checkInputWidth(e) {
